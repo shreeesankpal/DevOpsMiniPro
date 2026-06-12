@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+CodeBehind="Site1.master.cs"
+Inherits="onlineplantsell.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title>Online Plant Store</title>
+
+    <link href="CSS/style.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder
+        ID="head"
+        runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+
+<form id="form1" runat="server">
+
+    <asp:ScriptManager
+        ID="ScriptManager1"
+        runat="server">
+    </asp:ScriptManager>
+
+    <div class="navbar">
+
+        <asp:HyperLink
+            runat="server"
+            NavigateUrl="~/Home.aspx"
+            Text="Home" />
+
+        <asp:HyperLink
+            runat="server"
+            NavigateUrl="~/Plants.aspx"
+            Text="Plants" />
+
+        <asp:HyperLink
+            runat="server"
+            NavigateUrl="~/Cart.aspx"
+            Text="Cart" />
+
+        <asp:HyperLink
+            runat="server"
+            NavigateUrl="~/Login.aspx"
+            Text="Login" />
+
+        <asp:HyperLink
+            runat="server"
+            NavigateUrl="~/Register.aspx"
+            Text="Register" />
+
+    </div>
+
+    <div class="container">
+
+        <asp:ContentPlaceHolder
+            ID="ContentPlaceHolder1"
+            runat="server">
+        </asp:ContentPlaceHolder>
+
+    </div>
+
+</form>
+
+</body>
+</html>
