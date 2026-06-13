@@ -25,10 +25,21 @@ pipeline {
         stage('Project URL') {
             steps {
                 echo '========================================='
-                echo 'Project Deployed Successfully'
-                echo 'Open Project At: http://localhost:8080'
+                echo 'ONLINE PLANT SELLING SYSTEM DEPLOYED'
+                echo 'Project Link: http://localhost/OnlinePlantSell'
                 echo '========================================='
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'BUILD SUCCESSFUL'
+            echo 'Open Project: http://localhost/OnlinePlantSell'
+        }
+
+        failure {
+            echo 'BUILD FAILED'
         }
     }
 }
