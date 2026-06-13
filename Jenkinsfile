@@ -21,14 +21,14 @@ pipeline {
                 bat 'dir C:\\Deploy\\OnlinePlantSell'
             }
         }
-    }
 
-    post {
-        success {
-            echo 'Build Successful'
-        }
-        failure {
-            echo 'Build Failed'
+        stage('Project URL') {
+            steps {
+                echo '========================================='
+                echo 'Project Deployed Successfully'
+                echo 'Open Project At: http://localhost:8080'
+                echo '========================================='
+            }
         }
     }
 }
