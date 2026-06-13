@@ -1,30 +1,34 @@
 pipeline {
-    agent any
+agent any
 
-    stages {
+```
+stages {
 
-        stage('Checkout') {
-            steps {
-                echo 'Downloading source code from GitHub'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Building Online Plant Selling System'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Testing application'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deployment successful'
-            }
+    stage('Checkout') {
+        steps {
+            git 'https://github.com/shreeesankpal/DevOpsMiniPro.git'
         }
     }
+
+    stage('Build') {
+        steps {
+            bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" SourceCode\\onlineplantsell.sln'
+        }
+    }
+
+    stage('Deploy') {
+        steps {
+            bat 'if not exist C:\\Deploy\\OnlinePlantSell mkdir C:\\Deploy\\OnlinePlantSell'
+            bat 'xcopy /E /Y SourceCode\\onlineplantsell\\* C:\\Deploy\\OnlinePlantSell\\'
+        }
+    }
+
+    stage('Verify') {
+        steps {
+            bat 'dir C:\\Deploy\\OnlinePlantSell'
+        }
+    }
+}
+```
+
 }
